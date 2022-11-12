@@ -8,6 +8,8 @@
   --gutter: 30px;
   --side-small: 26;
   --size-big: 36;
+  --debth: 4000px;
+  --transition: .75s cubic-bezier(.075, .5, 0, 1);
 }
 
 @font-face {
@@ -28,6 +30,8 @@ body {
   font-size: calc(var(--index) * .8);
   font-family: raleway_c, sans-serif;
   line-height: 1.75;
+  height: var(--debth);
+  font-weight: 300;
 }
 .container {
   width: 100%;
@@ -48,4 +52,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: var(--transition), opacity .75s ease;
+  will-change: transform;
 }

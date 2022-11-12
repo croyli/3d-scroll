@@ -3,7 +3,7 @@
 let zSpacing = -1000
     lastPos  = zSpacing / 5
     $frames = document.getElementsByClassName('frame')
-    frame = Array.from($frames)
+    frames = Array.from($frames)
     zVals = []
 
 
@@ -15,10 +15,14 @@ let zSpacing = -1000
       lastPos = top
 
       frames.forEach(function(n, i) {
-        zVals.push(i * zSpacing + zSpacing)
-        zVals[i] += delta * -5
+        zVals.push((i * zSpacing) + zSpacing)
+        zVals[i] += delta * -3
         let frame = frames[i]
-            transform = `translates(${zVals[i]}px)`
+            transform = `translateZ(${zVals[i]}px)`
+            opacity = zVals[i] < Math.abs(zSpacing) / 1.8 ? 1 : 0
+        frame.setAttribute('style', `transform: ${transform}; opacity: ${opacity}`)
       })
 
     }
+
+    window.scrollTo(0, 1)
